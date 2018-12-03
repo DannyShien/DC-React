@@ -1,15 +1,46 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
 
+class TodoList extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            term: '',
+            items: []
+        }
+    }
 
-
-class TodoList extends Components {
     render () {
         return (
             <div>
                 <h1>React Todo App</h1>
+                <form onSubmit = {this._onSubmit}>
+                    <input value =  {this.state.term} 
+                    onChange = {this._onChange}
+                    placeholder = 'Enter Task' 
+                    />
+                    <button type = 'submit'>add</button>
+                </form>
             </div>
-        ) 
+        ) ;
     }
+
+    _onChange = (event) => {
+        this.setState ({ 
+            term: event.target.value
+        });
+    };
+
+    _onSubmit = (event) => {
+        // puts on the brakes
+        event.preventDefault();
+        // console.log('submitted');
+        this.setState({
+            term: '',
+            items: [...this.state.items, this.state.term]
+
+        })
+    }
+
 }
 
 
