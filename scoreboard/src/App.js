@@ -78,7 +78,24 @@ class App extends Component {
         })
     }
 
-    
+    _incrementScoreById(id) {
+        // find the player in this.state.scores
+        // increment their score
+        const newScores = this.state.scores.map(bruce => {
+            if(bruce.id !== id) {
+                return bruce
+            } else {
+                return {
+                    ...bruce,
+                    score: bruce.score + 1
+                };
+            }
+        });
+        // and call this.setScore
+        this.setState({
+            scores: newScores
+        });
+    }
 }
 
 export default App;
