@@ -56,7 +56,7 @@ class App extends Component {
     }
 
 
-    // Version 1 .map, manaully constructing replacement
+    // Version 1: .map, manaully constructing replacement
     _incrementScoreById(id) {
         // console.log('Adding a score')
         // find the player in this.state.scores
@@ -78,6 +78,7 @@ class App extends Component {
         })
     }
 
+    // Version 2: .map, using shorthand to copy values out of the original
     _incrementScoreById(id) {
         // find the player in this.state.scores
         // increment their score
@@ -86,8 +87,8 @@ class App extends Component {
                 return bruce
             } else {
                 return {
-                    ...bruce,
-                    score: bruce.score + 1
+                    ...bruce, 
+                    score: bruce.score + 1          
                 };
             }
         });
@@ -96,6 +97,21 @@ class App extends Component {
             scores: newScores
         });
     }
+
+    // Version 3: .map, obeject copy + ternary + implicit return
+    // using shorthand to copy values out of the origianl score
+    _incrementScoreById(id) {
+        // find the player in this state.scores
+        // increment their score
+        const newScores = this.state.scores.map(bob => {
+            return bob.id !== id ? bob: {...bob, score: bob.score + 1};
+        });
+        // and call this.setState
+        this.setState({
+            scores: newScores
+        });
+    }
+
 }
 
 export default App;
