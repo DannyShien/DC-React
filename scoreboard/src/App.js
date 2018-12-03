@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ScoreCard from './ScoreCard'
 import './App.css';
 
 class App extends Component {
@@ -42,14 +42,16 @@ class App extends Component {
     _scoresAsCards() {
         const cards = this.state.scores.map(score => {
             return (
-                <div key= {score.id}>
-                    <h2>
-                        Name: {score.name}
-                            <br />
-                        Score: {score.score}  
-                    </h2>
-                    <button onClick={() => this._incrementScoreById(score.id)}>+</button>
-                </div>
+                <ScoreCard
+                    key = {score.id} 
+                    id = {score.id}
+                    name = {score.name}
+                    score = {score.score}
+                    // handleClick = {this._incrementScoreById.bind(this)}
+                    handleClick = {id => this._incrementScoreById(id)}
+                    // handleClick = {this._decrementScoreById.bind(this)}
+                />
+                
             );
         });
         return cards;
@@ -112,6 +114,22 @@ class App extends Component {
         });
     }
 
+    _decrementScoreById(id) {
+        const newScores = this.state.scores.map(score => {
+            if(score.id !== id) {
+                return score
+            } else {
+                return {
+                    id: score.id,
+                    name: score.name,
+                    score: score.score - 1
+                }
+            }
+        })
+        this.setState({
+            scores: newScores
+        })
+    }    
 }
 
 export default App;
