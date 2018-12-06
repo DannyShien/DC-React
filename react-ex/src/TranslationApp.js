@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import InputBox from './InputBox';
 import OutputBox from './OutputBox';
 
+import {
+    toL33t, 
+    toUpperCase
+} from './Translations';
+
 class TranslationApp extends Component {
     constructor(props) {
         super(props)
@@ -19,8 +24,18 @@ class TranslationApp extends Component {
                     handleChange = {this._updateText}
                 />
                 <OutputBox
-                    newText = {this.state.text.toUpperCase()}
+                    newText = {this.state.text}
                 />
+                <OutputBox
+                    newText = {this.state.text}
+                    transformFunction = {toUpperCase}
+                />
+                <OutputBox
+                    newText = {this.state.text}
+                    transformFunction = {toL33t}
+                />
+
+
             </div>
         );
     }
