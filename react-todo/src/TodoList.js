@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List from './List';
+import Form from './Form';
 
 class TodoList extends Component {
     constructor (props) {
@@ -7,30 +8,48 @@ class TodoList extends Component {
         this.state = {
             term: '',
             items: []
-        }
+        };
+    }
+
+    componentDidMount() {
+        // Making an Ajax call
+        console.log('about to fetch');
+        fetch('/make')
+            .then(r => r.json())
+            .then(makeArray => {
+                console.log(makeArray);
+                // console.table(makeArray);
+                this.setState({
+                    items: makeArray
+                })
+            }
     }
 
     render () {
         return (
             <div>
                 <h1>React Todo App</h1>
-                <form onSubmit = {this._onSubmit}>
-                    <input value =  {this.state.term} 
-                    onChange = {this._onChange}
-                    placeholder = 'Enter Task' 
+                <Form 
+                    onSubmit = {this._onSubmit}
+                    term = {this.state.term}
+                    onChange = {(event) => this._onChange(event.target.value)}
                     />
-                    <button type = 'submit'>add</button>
-                </form>
                 <div>
-                    <List items = {this.state.items} />
+                    <List 
+                    items = {this.state.items} 
+                    handleClick = {this._deleteTodo}
+                    />
                 </div>
             </div>
-        ) ;
+        );
     }
 
-    _onChange = (event) => {
+    _onChange = (userInput) => {
+        console.log(userInput);
         this.setState ({ 
-            term: event.target.value
+            term: userInput
+        }, () => {
+            console.log('User is typing');
         });
     };
 
@@ -44,6 +63,32 @@ class TodoList extends Component {
 
         })
     }
+
+    _deleteTodo = (indexToDelete) => {
+    // _deleteTodo = (idToDelete) => {
+
+        // this.setState({
+        //     items: this.state.items.filter(items => items.id !== idToDelete)
+        // })
+
+        let itemToKeep = [];
+        this.state.items.forEach((item,index) => {
+            if(index  === indexToDelete) {
+                console.log(`${index} index is deleted`);
+            } else {
+                console.log(`${index} index is kept`);
+                itemToKeep.push(item);
+            }
+        });
+        this.state.item = itemToKeep;
+        this.setState({
+            items: itemToKeep
+        })
+    }
+
+
+
+
 
 }
 
