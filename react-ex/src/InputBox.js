@@ -2,20 +2,13 @@ import React from 'react';
 
 function InputBox(props) {
     return (
-        <div>
-            <input
-            onSubmit = {props.onSubmit}
-            onChange = {props.onChange}
-            value = {props.text}
+        <input
+            onChange = {(event) => {
+                props.handleChange(event.target.value);
+            }}
+            value = {props.newText}
             placeholder = 'Text here'
-            >
-            
-            </input>
-
-            <button
-            onClick = {props.handleClick}
-            >Submit</button>
-        </div>
+        />
     )
 }
 

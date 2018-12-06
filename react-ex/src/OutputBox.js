@@ -1,11 +1,11 @@
 import React from 'react';
 
-function OutputBox(props) {
-    render(
+const OutputBox = (props) => {
+    return (
         <div>
-            
+            {props.newText}
         </div>
-    );    
-}
+    )    
+};
 
 export default OutputBox;

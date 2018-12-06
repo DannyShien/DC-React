@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import InputBox from './InputBox';
+import OutputBox from './OutputBox';
 
 class TranslationApp extends Component {
     constructor(props) {
         super(props)
             this.state = {
                 text: '',
-                inputText: []
+                // inputText: []
             }
     }
     render() {
@@ -14,36 +15,22 @@ class TranslationApp extends Component {
             <div>
                 <h1>Walky Talky</h1>
                 <InputBox
-                text = {this.state.text}
-                handleClick = {this._onSubmit}
-                onChange = {(event) => this._onChange(event.target.value)}
-                // onSubmit = {this._onSubmit}
+                    newText = {this.state.text}
+                    handleChange = {this._updateText}
+                />
+                <OutputBox
+                    newText = {this.state.text.toUpperCase()}
                 />
             </div>
         );
     }
 
-    _onSubmit = () => {
-        console.log('submitted')
-        // const newText = this.state.text;
-        this.setState({
-            text: '',
-            inputText: [...this.state.inputText, this.state.text]
-        })
-        console.log(this.state.text);
-    };
-
-    _onChange = (textInput) => {
-        console.log(textInput);
+    _updateText = (text) => {
+        console.log(text);
         this.setState ({
-            text : textInput
-        }, () => {
-            console.log('Receiving text');
-        })
-    };
-
-
-
+            text
+        });
+    }
 
 }
 
