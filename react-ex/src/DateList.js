@@ -3,9 +3,9 @@ import React from 'react';
 function DateList(props) {
     const dateArray = props.newDateItems.map((oneDate, i) => {
         return (
-            <li key = {i}>
+            <div key = {i}>
                 {oneDate}
-            </li>
+            </div>
         )    
     })
     return (
@@ -15,6 +15,10 @@ function DateList(props) {
     )
 }
 
+// Modern, 'hipster-ish' way of writing a function conponent
+// const DateList = (props) => {
+//     return ();
+// }
 
 
 

@@ -29,11 +29,11 @@ class Timestamp extends Component {
 
     _getNewTime = () => {
         console.log('click');
-        const currentTime = Date.now();
+        const currentDate = new Date().toLocaleString();
         // const humanTime = currentTime.toString()
         // console.log(currentTime);
         this.setState({ 
-            date: [...this.state.date, currentTime]    
+            date: [...this.state.date, currentDate]    
         })
         console.log(this.state.date)
     };
