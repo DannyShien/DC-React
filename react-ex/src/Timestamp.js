@@ -14,7 +14,7 @@ class Timestamp extends Component {
     render() {
         return (
             <div className="App">
-                <h1>React Exercise: Small</h1>
+                <h1>Timestamp</h1>
                 <Button 
                 handleClick = {this._getNewTime} 
                 />
