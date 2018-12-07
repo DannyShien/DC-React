@@ -13,17 +13,18 @@ class Timestamp extends Component {
 
     render() {
         return (
-            <div className="App">
-                <h1>Timestamp</h1>
+            <div className = 'timestamp'>
+                <h1 className = 'title'>Timestamp</h1>
                 <Button 
-                handleClick = {this._getNewTime} 
+                    handleClick = {this._getNewTime} 
                 />
-
-                <DateList 
-                newDateItems = {this.state.date}
-                />
-
+                <div className = 'listContainer'>
+                    <DateList
+                        newDateItems = {this.state.date}
+                    />
+                </div>
             </div>
+
         );
     }
 

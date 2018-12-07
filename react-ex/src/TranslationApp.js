@@ -17,8 +17,8 @@ class TranslationApp extends Component {
     }
     render() {
         return (
-            <div>
-                <h1>Walky Talky</h1>
+            <div className = 'translation'>
+                <h1 className = 'title'>Walky Talky</h1>
                 <InputBox
                     newText = {this.state.text}
                     handleChange = {this._updateText}
@@ -34,8 +34,6 @@ class TranslationApp extends Component {
                     newText = {this.state.text}
                     transformFunction = {toL33t}
                 />
-
-
             </div>
         );
     }

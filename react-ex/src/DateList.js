@@ -3,7 +3,7 @@ import React from 'react';
 function DateList(props) {
     const dateArray = props.newDateItems.map((oneDate, i) => {
         return (
-            <div key = {i}>
+            <div className = 'date-list' key = {i}>
                 {oneDate}
             </div>
         )    

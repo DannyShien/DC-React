@@ -7,9 +7,13 @@ const OutputBox = (props) => {
     }
 
     return (
-        <div className='output-box'>
-            {textToDisplay}
-        </div>        
+        <div className = 'output-boxContainer'>
+            <h1></h1>
+            <div className='output-box'>
+
+                {textToDisplay}
+            </div>        
+        </div>
     ); 
 };
 
