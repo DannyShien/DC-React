@@ -12,7 +12,7 @@ import NavBar from './NavBar';
 import Home from './Home';
 import About from './About';
 import Fitness from './Fitness';
-import WorkOutType from './WorkOutType';
+import WorkOuts from './WorkOuts';
 
 
 class App extends Component {
@@ -22,18 +22,27 @@ class App extends Component {
             getSwole: {
                 'Chest': [
                     'Bench Press', 
-                    'Cable Chest Flies', 
+                    'Cable Chest Flys', 
                     'Incline Press',
                     'Push-Ups'
                 ],
                 'Back': [
-                    'Pull-Ups'
+                    'Pull-Ups',
+                    'Seated Rows', 
+                    'Lat Pull-Downs',
+                    'Reverse Flys'
                 ],
                 'Shoulders': [
-                    'Military Press'
+                    'Military Press',
+                    'Side Raises', 
+                    'Seated Incline Front Raises',
+                    'Single Arm Power Clean'
                 ],
                 'Legs': [
-                    'Dead Lifts'
+                    'Dead Lifts',
+                    'Leg Press', 
+                    'Lunges', 
+                    'Calve Raises'
                 ]
             }
         };
@@ -47,10 +56,10 @@ class App extends Component {
                 <Route path = '/' exact component = {Home} />
                 <Route path = '/about' component = {About} />
                 <Route path = '/fitness' render = {(props) => {
-                    return <Fitness routineList = {Object.keys(this.state.getSwole)} {...props} />
+                    return <Fitness bodySection = {Object.keys(this.state.getSwole)} {...props} />
                 }} />
-                <Route path = '/fitness/:routinetype' render = {(props) => {
-                    return <WorkOutType bodyPart = {this.state.getSwole} {...props} />
+                <Route path = '/fitness/:workOutType' render = {(props) => {
+                    return <WorkOuts bodyPart = {this.state.getSwole} {...props} />
                 }} />
             </div>
         </Router>

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Fitness = (props) => {
 
-    const workOuts = props.routineList.map(routinetype => {
+    const bodyExercises = props.bodySection.map(workOutType => {
         return (
             <div>
-                <Link to = {`/fitness/${routinetype}`}>{routinetype}</Link>
+                <Link to = {`/fitness/${workOutType}`}>{workOutType}</Link>
             </div>
         );
     });
@@ -15,7 +15,7 @@ const Fitness = (props) => {
         <div>
             <h1>Fitness</h1>
             <ul>
-                {workOuts}
+                {bodyExercises}
             </ul>
         </div>
     );
