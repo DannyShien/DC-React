@@ -6,7 +6,7 @@ import Players from './Players';
 // import Button from './Button';
 
 
-class DiceRoll extends Component {
+class DiceRollGame extends Component {
     render() {
         return (
             <div>
@@ -20,4 +20,4 @@ class DiceRoll extends Component {
     }
 }
 
-export default DiceRoll;
+export default DiceRollGame;
