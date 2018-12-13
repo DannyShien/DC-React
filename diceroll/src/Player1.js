@@ -10,6 +10,7 @@ const Player1 = (props) => {
             <h3>Player1</h3>
             <Button 
                 handleClick = {props.p1Dice}
+                // handleChange = {props.p1rolling}
             />
             <DCP1 
                 P1Roll = {props.p1DiceRoll}

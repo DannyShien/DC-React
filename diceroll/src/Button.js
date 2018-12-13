@@ -5,7 +5,9 @@ const Button = (props) => {
         <div>
             <button 
                 className = 'btn'
-                onClick = {props.handleClick}
+                onClick = {() => {props.handleClick()}}
+                // onChange = {props.handleChange}
+
                 >::</button>
         </div>
     );
