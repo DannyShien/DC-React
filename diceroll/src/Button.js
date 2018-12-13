@@ -6,7 +6,7 @@ const Button = (props) => {
             <button 
                 className = 'btn'
                 onClick = {props.handleClick}
-                >Roll Dice</button>
+                >::</button>
         </div>
     );
 }

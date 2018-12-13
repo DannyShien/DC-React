@@ -1,15 +1,19 @@
 import React from 'react';
-import ScoreDisplay from './ScoreDisplay';
 
 const Scoreboard = (props) => {
-    return (
-        <div>
-            <div className = 'scoreboard'>
-                <h1>Player's Score</h1>
-                <ScoreDisplay />
+    const newScore = props.updateScore;
+        return (
+            <div>
+                <div className = 'scoreboard'>
+                    <h1>Player's Score</h1>
+                    <div>
+                        <h3>Player 1: {newScore}</h3>
+                        
+                    </div>
+                    <h3>Player 2: {newScore}</h3>
+                </div>
             </div>
-        </div>
-    );
+        );
 }
 
 
