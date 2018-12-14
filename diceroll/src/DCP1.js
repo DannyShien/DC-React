@@ -4,7 +4,9 @@ const DCP1 = (props) => {
     const numRolled = props.P1Roll; 
         return (
             <div>
-                <div>Number rolled: {numRolled} </div>
+                <div className = 'dice-count'>
+                    Number rolled: {numRolled} 
+                </div>
             </div>
         )
 }

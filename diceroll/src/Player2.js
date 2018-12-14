@@ -5,11 +5,10 @@ import DCP2 from './DCP2';
 
 const Player2 = (props) => {
     return (
-        <div>
-            <h3>Player2</h3>
+        <div className = 'player-two'>
+            <h3>Player 2</h3>
             <Button 
                 handleClick = {props.p2Dice}
-                // handleChange = {props.p2rolling}
             />
             <DCP2 
                 P2Roll = {props.p2DiceRoll}
@@ -17,7 +16,5 @@ const Player2 = (props) => {
         </div>
     )
 }
-
-
 
 export default Player2;
